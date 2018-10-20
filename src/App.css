@@ -56,6 +56,20 @@
   color: white;
 }
 
+.Apply-Changes {
+  background-color: #1f1f1f;
+  margin-left: -444px;
+  border-radius: 5px;
+  font-family: Quicksand;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color:white;
+}
+
 .Type-message-here {
   margin-left: -500px;
   margin-top: 80px;
