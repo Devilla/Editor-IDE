@@ -29,7 +29,7 @@ class App extends Component {
     this.setState({ code: newValue });
     console.log('CODE : ',this.state.code);
 
-    CampK12.translate(key);
+    // CampK12.translate(key);
   }
   onSubmit = (e) => {
     if(e.keyCode === 13) {
