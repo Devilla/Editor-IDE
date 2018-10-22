@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import MonacoEditor from 'react-monaco-editor';
 /* eslint-enable import/no-extraneous-dependencies */
 import './App.css';
+import safeEval from 'safe-eval';
 
 class App extends Component {
   constructor(props) {
@@ -52,16 +53,12 @@ class App extends Component {
   }
 
   applyChange = () => {
-    // console.log('onChange', newValue, e); // eslint-disable-line no-console
-    // this.setState({ code: newValue });
-    // console.log('This CODE to be eval : ',eval(this.state.code));
-    this.state.chatbot = this.state.code.split('"', 2);
-    console.log("CHATBOT DATA :",this.state.chatbot[1]);
-    this.state.chatbot = this.state.chatbot[1];
+    this.setState({chatbot : safeEval(this.state.code+'()') });
+    console.log("CODE IS COOOL : ",this.state.chatbot);
   }
 
   render() {
-    const { code, message, chatbot } = this.state;
+    const { code } = this.state;
     const options = {
       selectOnLineNumbers: true,
       roundedSelection: false,
