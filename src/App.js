@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 // eslint-disable-next-line import/no-unresolved, import/extensions
 import MonacoEditor from 'react-monaco-editor';
 /* eslint-enable import/no-extraneous-dependencies */
 import './App.css';
 import safeEval from 'safe-eval';
 import * as CampK12 from './components/CampK12'
-
-const key = 'trnsl.1.1.20181022T141536Z.801da2156e9d41fb.c6eb103cd49b4068b3366a428664c33c9bd160e6';
 
 
 class App extends Component {
@@ -16,7 +13,7 @@ class App extends Component {
     
     this.state = {
       code: '// type your code... \n',
-      message: 'hello',
+      message: '',
       chatbot: 'ok',
       messageData: [],
       chatbotData: []
@@ -28,11 +25,10 @@ class App extends Component {
     // console.log('onChange', newValue, e); // eslint-disable-line no-console
     this.setState({ code: newValue });
     console.log('CODE : ',this.state.code);
-
-    
   }
   onSubmit = (e) => {
     if(e.keyCode === 13) {
+    this.setState({message: ""}); 
     console.log("Enter pressed",e.target.value); // eslint-disable-line no-console
     this.state.messageData.push(e.target.value);
     this.state.chatbotData.push(this.state.chatbot);
@@ -61,17 +57,7 @@ class App extends Component {
 
   applyChange = () => {
     this.setState({chatbot : safeEval(this.state.code+'()') });
-    // axios.get('https://translate.yandex.net/api/v1.5/tr.json/translate?key='+key+'&lang='+'hi'+'&text='+'hi boy')
-    // .then((response) => {
-    //   var output = response.data.text[0];
-    //   // this.setState({ output });
-    //   console.log("Here is translation output! ", output);
-    //   })
-    //   .catch((error) =>
-    //     console.log(error)
-    //   );
-
-    CampK12.translate(key);
+    CampK12.askSusi();
   }
 
   render() {
