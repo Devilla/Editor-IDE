@@ -5,7 +5,7 @@ import MonacoEditor from 'react-monaco-editor';
 /* eslint-enable import/no-extraneous-dependencies */
 import './App.css';
 import safeEval from 'safe-eval';
-import CampK12 from './components/CampK12'
+import * as CampK12 from './components/CampK12'
 
 const key = 'trnsl.1.1.20181022T141536Z.801da2156e9d41fb.c6eb103cd49b4068b3366a428664c33c9bd160e6';
 
@@ -29,7 +29,7 @@ class App extends Component {
     this.setState({ code: newValue });
     console.log('CODE : ',this.state.code);
 
-    // CampK12.translate(key);
+    
   }
   onSubmit = (e) => {
     if(e.keyCode === 13) {
@@ -61,15 +61,17 @@ class App extends Component {
 
   applyChange = () => {
     this.setState({chatbot : safeEval(this.state.code+'()') });
-    axios.get('https://translate.yandex.net/api/v1.5/tr.json/translate?key='+key+'&lang='+'hi'+'&text='+'hi boy')
-    .then((response) => {
-      var output = response.data.text[0];
-      // this.setState({ output });
-      console.log("Here is translation output! ", output);
-      })
-      .catch((error) =>
-        console.log(error)
-      );
+    // axios.get('https://translate.yandex.net/api/v1.5/tr.json/translate?key='+key+'&lang='+'hi'+'&text='+'hi boy')
+    // .then((response) => {
+    //   var output = response.data.text[0];
+    //   // this.setState({ output });
+    //   console.log("Here is translation output! ", output);
+    //   })
+    //   .catch((error) =>
+    //     console.log(error)
+    //   );
+
+    CampK12.translate(key);
   }
 
   render() {
@@ -110,7 +112,7 @@ class App extends Component {
          <input 
          placeholder="Type message here..." 
          className="Type-message-here" 
-      
+         value={this.state.message}
          onChange={ this.handleChange }
          onKeyUp={ this.onSubmit }/>
          </div>
