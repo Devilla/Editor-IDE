@@ -76,8 +76,8 @@ class App extends Component {
 
     return (
       <div className="App">
-      <div style={{width: "100%", height: "50px", backgroundColor: "#171717"}}>
-      <div id="AI-Playground" style={{color: "#ffffff", marginLeft: "-1700px", marginTop:"0px", paddingTop: "13px"}}>AI Playground
+      <div style={{width: "113%", height: "50px", backgroundColor: "#171717"}}>
+      <div id="AI-Playground" style={{color: "#ffffff", width: "113%", marginLeft: "-1109px", marginTop:"0px", paddingTop: "13px"}}>AI Playground
       <div style={{color: "#ffffff", marginRight: "-3100px", marginTop: "-27px", paddingTop: "13px"}}>Learn AI</div>
       <div style={{color: "#ffffff", marginRight: "-3250px", marginTop: "-31px", paddingTop: "13px"}}>Docs</div>
       <div style={{color: "#ffffff", marginRight: "-3349px", marginTop: "-24px", paddingTop: "14px"}}>

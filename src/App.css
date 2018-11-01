@@ -86,18 +86,21 @@ height: 31px;
 }
 
 .Type-message-here {
-  margin-left: -500px;
-  margin-top: 50px;
-  width: 262px;
-  height: 36px;
-  font-family: Quicksand;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #a9a9a9;
+    margin-left: -549px;
+    margin-top: 50px;
+    width: 484px;
+    height: 58px;
+    padding: 13px;
+    font-family: Quicksand;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #a9a9a9;
+    border: none;
+    background-color: #1f1f1f;
 }
 
 @keyframes App-logo-spin {
