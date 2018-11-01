@@ -22,6 +22,11 @@
 .App-link {
   color: #61dafb;
 }
+.navb{
+  background-color:  #1f1f1f;
+  height: 60px;
+  width:1024px;
+}
 .Rectangle {
   margin-left: 600px;
   margin-top: -800px;
@@ -37,29 +42,35 @@
   width: 500px;
   height: 600px;
   border-radius: 2px;
-  box-shadow: 0 2px 4px 4px rgba(0, 0, 0, 0.08);
+  color: #1f1f1f;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
   background-color: #1f1f1f;
 }
 .Rectangle-4-Copy-2 {
+  margin-left: 50px;
+margin-top: -42px;
   width: 136px;
   height: 25px;
-  border-radius: 8px;
+  border-radius: 53px;
   background-color: #404040;
   color: whitesmoke;
+  padding: 16px;
 }
 .Rectangle-4-Copy-3 {
-  margin-left: 363px;
+  margin-left: 318px;
+  margin-top: -41px;
   width: 136px;
   height: 25px;
-  border-radius: 8px;
+  border-radius: 53px;
   background-color: #404040;
-  color: white;
+  color: whitesmoke;
+  padding: 16px;
 }
 
 .Apply-Changes {
-  background-color: #1f1f1f;
+  background-color: #66d68d;
   margin-left: -444px;
-  border-radius: 5px;
+  border-radius: 2px;
   font-family: Quicksand;
   font-weight: 500;
   font-style: normal;
@@ -67,7 +78,9 @@
   line-height: normal;
   letter-spacing: normal;
   text-align: center;
-  color:white;
+  color: white;
+  width: 149px;
+height: 31px;
 }
 
 .Type-message-here {

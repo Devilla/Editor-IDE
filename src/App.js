@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // eslint-disable-next-line import/no-unresolved, import/extensions
 import MonacoEditor from 'react-monaco-editor';
+import Button from 'react-bootstrap-button-loader';
 /* eslint-enable import/no-extraneous-dependencies */
 import './App.css';
 import safeEval from 'safe-eval';
@@ -10,13 +11,14 @@ import * as CampK12 from './components/CampK12'
 class App extends Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
       code: '// type your code... \n',
-      message: '',
+      message:'',
       chatbot: 'ok',
       messageData: [],
-      chatbotData: []
+      chatbotData: [],
+      loading: false
     }
     this.state.chatbotData.push('hi, how can i help?');
   }
@@ -28,7 +30,7 @@ class App extends Component {
   }
   onSubmit = (e) => {
     if(e.keyCode === 13) {
-    this.setState({message: ""}); 
+    this.setState({message: ""});
     console.log("Enter pressed",e.target.value); // eslint-disable-line no-console
     this.state.messageData.push(e.target.value);
     this.state.chatbotData.push(this.state.chatbot);
@@ -56,6 +58,7 @@ class App extends Component {
   }
 
   applyChange = () => {
+    this.setState({loading:true});
     this.setState({chatbot : safeEval(this.state.code+'()') });
     CampK12.askSusi();
   }
@@ -72,7 +75,19 @@ class App extends Component {
 
     return (
       <div className="App">
-      <button  className="Apply-Changes" onClick={this.applyChange}>Apply Changes</button>
+      <div style={{width: "100%", height: "50px", backgroundColor: "#171717"}}>
+      <div id="AI-Playground" style={{color: "#ffffff", marginLeft: "-1700px", marginTop:"0px", paddingTop: "13px"}}>AI Playground
+      <div style={{color: "#ffffff", marginRight: "-3100px", marginTop: "-27px", paddingTop: "13px"}}>Learn AI</div>
+      <div style={{color: "#ffffff", marginRight: "-3250px", marginTop: "-31px", paddingTop: "13px"}}>Docs</div>
+      <div style={{color: "#ffffff", marginRight: "-3349px", marginTop: "-24px", paddingTop: "14px"}}>
+      <img style={{borderRadius:"60px",  marginTop: "-31px", hight:"25px", width:"25px"}} src="https://secure.gravatar.com/avatar/ae9ba1e5d720e581296722b558d48283?s=36&d=https://app.zeplin.io/img/emotars/emotarGift.png" />
+      <div className="caret" style={{color: "#ffffff", height:"25px", marginLeft: "100px", marginTop: "-25px"}} >Account</div>
+      </div>
+      </div>
+      </div>
+      <div id="navbar-top" style={{backgroundColor: "#1f1f1f", color: "white"}}>
+      <Button className="Apply-Changes" loading={this.state.loading} onClick={this.applyChange}>Apply Changes!</Button>
+      </div>
         <header className="text-left">
         <MonacoEditor
           height="800"
@@ -86,18 +101,25 @@ class App extends Component {
         />
          <div className="Rectangle">
          <div className="Rectangle2">
-         
-         { 
+
+         {
             this.state.chatbotData.map((item, i) => {
-          
-            return <div><div key={i} className="Rectangle-4-Copy-2">{item}</div> 
-            <div key={i} className="Rectangle-4-Copy-3">{this.state.messageData[i]}</div></div>;
+
+            return( <div>
+            <img style={{borderRadius:"60px", marginLeft: "-444px", marginTop: "-31px", hight:"25px", width:"25px"}} src="bot.jpg" />
+            <div key={i} className="Rectangle-4-Copy-2">{item}</div>
+            this.state.messageData &&
+            <img style={{borderRadius:"60px", marginLeft: "78px", marginTop: "-31px", hight:"25px", width:"25px"}} src="https://secure.gravatar.com/avatar/ae9ba1e5d720e581296722b558d48283?s=36&d=https://app.zeplin.io/img/emotars/emotarGift.png" />
+            <div key={i} className="Rectangle-4-Copy-3">{this.state.messageData[i]}</div>
+          }
+            </div>
+          );
           })
          }
          </div>
-         <input 
-         placeholder="Type message here..." 
-         className="Type-message-here" 
+         <input
+         placeholder="Type message here..."
+         className="Type-message-here"
          value={this.state.message}
          onChange={ this.handleChange }
          onKeyUp={ this.onSubmit }/>
