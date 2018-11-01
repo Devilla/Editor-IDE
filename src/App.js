@@ -20,8 +20,8 @@ class App extends Component {
       chatbotData: [],
       loading: false
     }
-    this.state.messageData.push('Begin ?');
-    this.state.chatbotData.push('hi, how can i help?');
+    // this.state.messageData.push('Begin ?');
+    // this.state.chatbotData.push('hi, how can i help?');
   }
 
   onChange = (newValue, e) => {
@@ -107,11 +107,15 @@ class App extends Component {
             this.state.chatbotData.map((item, i) => {
 
             return( <div>
-            <img style={{borderRadius:"60px", marginLeft: "-444px", marginTop: "-31px", hight:"25px", width:"25px"}} src="bot.jpg" />
-            <div key={i} className="Rectangle-4-Copy-2">{item}</div>
+
 
             <img style={{borderRadius:"60px", marginLeft: "78px", marginTop: "-31px", hight:"25px", width:"25px"}} src="https://secure.gravatar.com/avatar/ae9ba1e5d720e581296722b558d48283?s=36&d=https://app.zeplin.io/img/emotars/emotarGift.png" />
-            <div key={i} className="Rectangle-4-Copy-3">{this.state.messageData[i]}</div></div>
+            <div key={i} className="Rectangle-4-Copy-3">{this.state.messageData[i]}</div>
+            <img style={{borderRadius:"60px", marginLeft: "-444px", marginTop: "-31px", hight:"25px", width:"25px"}} src="bot.jpg" />
+            <div key={i} className="Rectangle-4-Copy-2">{item}</div>
+            </div>
+
+
           );
           })
          }
