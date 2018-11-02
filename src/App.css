@@ -23,9 +23,44 @@
   color: #61dafb;
 }
 .navb{
-  background-color:  #1f1f1f;
-  height: 60px;
-  width:1024px;
+  background-color:  #171717;
+  height: 50px;
+  width:113%;
+}
+.aiplayground{
+color: #ffffff;
+width: 113%;
+margin-left: -1109px;
+margin-top: 0px;
+padding-top: 13px;
+}
+.learnai{
+  color: #ffffff;
+  margin-right: -3100px;
+  margin-top: -27px;
+  padding-top: 13px;
+}
+.docs{
+  color: #ffffff;
+  margin-right: -3250px;
+  margin-top: -31px;
+  padding-top: 13px;
+}
+.account{
+  color: #ffffff;
+  height:25px;
+  margin-left: 100px;
+  margin-top: -25px;
+}
+.outer-div{
+  color: #ffffff;
+  margin-right: -3349px;
+  margin-top: -24px;
+  padding-top: 14px;
+}
+.navbar-top{
+  background-color: #1f1f1f;
+  color: white;
 }
 .Rectangle {
   margin-left: 600px;

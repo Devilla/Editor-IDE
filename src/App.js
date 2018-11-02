@@ -76,17 +76,17 @@ class App extends Component {
 
     return (
       <div className="App">
-      <div style={{width: "113%", height: "50px", backgroundColor: "#171717"}}>
-      <div id="AI-Playground" style={{color: "#ffffff", width: "113%", marginLeft: "-1109px", marginTop:"0px", paddingTop: "13px"}}>AI Playground
-      <div style={{color: "#ffffff", marginRight: "-3100px", marginTop: "-27px", paddingTop: "13px"}}>Learn AI</div>
-      <div style={{color: "#ffffff", marginRight: "-3250px", marginTop: "-31px", paddingTop: "13px"}}>Docs</div>
-      <div style={{color: "#ffffff", marginRight: "-3349px", marginTop: "-24px", paddingTop: "14px"}}>
+      <div  className="navb">
+      <div className="aiplayground">AI Playground
+      <div className="learnai">Learn AI</div>
+      <div className="docs">Docs</div>
+      <div className="outer-div">
       <img style={{borderRadius:"60px",  marginTop: "-31px", hight:"25px", width:"25px"}} src="https://secure.gravatar.com/avatar/ae9ba1e5d720e581296722b558d48283?s=36&d=https://app.zeplin.io/img/emotars/emotarGift.png" />
-      <div className="caret" style={{color: "#ffffff", height:"25px", marginLeft: "100px", marginTop: "-25px"}} >Account</div>
+      <div className="account" >Account</div>
       </div>
       </div>
       </div>
-      <div id="navbar-top" style={{backgroundColor: "#1f1f1f", color: "white"}}>
+      <div className="navbar-top">
       <Button className="Apply-Changes" loading={this.state.loading} onClick={this.applyChange}>Apply Changes!</Button>
       </div>
         <header className="text-left">
