@@ -24,6 +24,10 @@ class App extends Component {
     // this.state.chatbotData.push('hi, how can i help?');
   }
 
+  copmponentWillReceiveProps () {
+    this.setState({loading : false});
+  }
+
   onChange = (newValue, e) => {
     // console.log('onChange', newValue, e); // eslint-disable-line no-console
     this.setState({ code: newValue });
@@ -58,10 +62,11 @@ class App extends Component {
     this.setState({ message: e.target.value });
   }
 
-  applyChange = () => {
+  applyChange = async () => {
     this.setState({loading:true});
-    this.setState({chatbot : safeEval(this.state.code+'()') });
-    CampK12.askSusi();
+  const output = await CampK12.askSusi(safeEval(this.state.code+'()'));
+    this.setState({chatbot : output  });
+    this.setState({loading:false});
   }
 
   render() {
@@ -106,16 +111,13 @@ class App extends Component {
          {
             this.state.chatbotData.map((item, i) => {
 
-            return( <div>
-
-
+            return(
+            <div>
             <img style={{borderRadius:"60px", marginLeft: "78px", marginTop: "-31px", hight:"25px", width:"25px"}} src="https://secure.gravatar.com/avatar/ae9ba1e5d720e581296722b558d48283?s=36&d=https://app.zeplin.io/img/emotars/emotarGift.png" />
             <div key={i} className="Rectangle-4-Copy-3">{this.state.messageData[i]}</div>
             <img style={{borderRadius:"60px", marginLeft: "-444px", marginTop: "-31px", hight:"25px", width:"25px"}} src="bot.jpg" />
             <div key={i} className="Rectangle-4-Copy-2">{item}</div>
             </div>
-
-
           );
           })
          }
