@@ -64,7 +64,8 @@ class App extends Component {
 
   applyChange = async () => {
     this.setState({loading:true});
-  const output = await CampK12.askSusi(safeEval(this.state.code+'()'));
+    const language = 'hi';                  //Default translation language set to Hindi
+  const output = await CampK12.askSusi(safeEval(this.state.code+'()'),language);
     this.setState({chatbot : output  });
     this.setState({loading:false});
   }
@@ -112,7 +113,7 @@ class App extends Component {
             this.state.chatbotData.map((item, i) => {
 
             return(
-            <div>
+            <div style={{marginTop:"50px"}}>
             <img style={{borderRadius:"60px", marginLeft: "78px", marginTop: "-31px", hight:"25px", width:"25px"}} src="https://secure.gravatar.com/avatar/ae9ba1e5d720e581296722b558d48283?s=36&d=https://app.zeplin.io/img/emotars/emotarGift.png" />
             <div key={i} className="Rectangle-4-Copy-3">{this.state.messageData[i]}</div>
             <img style={{borderRadius:"60px", marginLeft: "-444px", marginTop: "-31px", hight:"25px", width:"25px"}} src="bot.jpg" />
